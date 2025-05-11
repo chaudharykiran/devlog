@@ -32,7 +32,6 @@ jobs:
 
       - name: Configure Pulumi
         run: |
-          yarn global add pulumi
           pulumi login --token ${{ secrets.PULUMI_ACCESS_TOKEN }}
           cd infrastructure
           pulumi stack select prod
