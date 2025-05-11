@@ -83,7 +83,7 @@ const stage = new aws.apigatewayv2.Stage('apiStage', {
   autoDeploy: true,
 });
 
-const httpApiEndpoint = pulumi.interpolate`${apigw.apiEndpoint}/${stage.name}`;
+export const httpApiEndpoint = pulumi.interpolate`${apigw.apiEndpoint}/${stage.name}`;
 
 const cachingDisabledPolicyId = '4135ea2d-6df8-44a3-9df3-4b5a84be39ad';
 const cachingOptimizedPolicyId = '658327ea-f89d-4fab-a63d-7e88639e58f6';

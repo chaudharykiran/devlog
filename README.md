@@ -7,7 +7,7 @@
 Run the Vite dev server:
 
 ```shellscript
-npm run dev
+yarn dev
 ```
 
 ## Deployment
@@ -15,13 +15,13 @@ npm run dev
 First, build your app for production:
 
 ```sh
-npm run build
+yarn build
 ```
 
 Then run the app in production mode:
 
 ```sh
-npm start
+yarn start
 ```
 
 ### Deploy
@@ -31,7 +31,7 @@ Install the [Pulumi CLI](https://www.pulumi.com/docs/get-started/install/)
 Install the infrastructure dependencies and configure your AWS credentials:
 ```sh
 cd infrastructure
-npm install
+yarn
 pulumi config set aws:region <your-region>
 pulumi config set aws:accessKey <your-access-key>
 pulumi config set aws:secretKey <your-secret-key> --secret
@@ -40,12 +40,12 @@ cd ..
 
 Deploy the infrastructure:
 ```sh
-npm run deploy
+yarn deploy
 ```
 
 Build the application and deploy it to the infrastructure:
 ```sh
-npm run build-deploy
+yarn build:deploy
 ```
 
 This starter repo is completely within the AWS free tier, so no need to worry about any costs.

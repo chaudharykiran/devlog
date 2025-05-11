@@ -1,5 +1,5 @@
 {
-    "name": "remix-lambda-starter",
+    "name": "remix-lambda-techbypro-blog",
     "main": "index.ts",
     "devDependencies": {
         "@types/node": "^18",

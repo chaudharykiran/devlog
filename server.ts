@@ -12,8 +12,8 @@ export const handler = (...args: Parameters<APIGatewayProxyHandlerV2>) => {
    * The api stage is forwarded to the request handler as a query parameter by API Gateway.
    * If you configure a different stage name (such as prod), you will need to update or automate this.
    */
-  apiGatewayEvent.rawPath = apiGatewayEvent.rawPath.replace(/^\/dev/, '');
-  apiGatewayEvent.requestContext.http.path = apiGatewayEvent.requestContext.http.path.replace(/^\/dev/, '');
+  apiGatewayEvent.rawPath = apiGatewayEvent.rawPath.replace(/^\/prod/, '');
+  apiGatewayEvent.requestContext.http.path = apiGatewayEvent.requestContext.http.path.replace(/^\/prod/, '');
 
   return requestHandler(apiGatewayEvent, ...rest);
 };

@@ -1,0 +1,41 @@
+name: Deploy to Netlify Production
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+          cd infrastructure && yarn install --fronzen-lockfile
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Configure Pulumi
+        run: |
+          yarn global add pulumi
+          pulumi login --token ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          cd infrastructure
+          pulumi stack select prod
+
+      - name: Deploy Application
+        run: |
+          yarn build:deploy
