@@ -12,6 +12,7 @@ export default function Index() {
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
       <h1>Welcome to Remix</h1>
       <h2>Deployed in AWS</h2>
+      <h3>Hello World! Deployed by CI/CD</h3>
     </div>
   );
 }
