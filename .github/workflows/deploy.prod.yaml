@@ -31,8 +31,9 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Configure Pulumi
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
         run: |
-          pulumi login --token ${{ secrets.PULUMI_ACCESS_TOKEN }}
           cd infrastructure
           pulumi stack select prod
 
