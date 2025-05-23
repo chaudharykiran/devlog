@@ -3,7 +3,7 @@ description: Deploys the application to AWS Lambda using Pulumi
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
