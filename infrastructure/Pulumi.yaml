@@ -1,0 +1,5 @@
+name: remix-lambda-starter
+runtime: nodejs
+description: A minimal configuration to deploy Remix on AWS Lambda
+config:
+  aws:region: ap-northeast-1
