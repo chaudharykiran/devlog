@@ -5,6 +5,7 @@ import { format } from "date-fns";
 import { Badge } from "@/components/ui/badge";
 import { CalendarIcon, ClockIcon } from "lucide-react";
 import { TopNavigation } from "@/components/blog/top-navigation";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   if (!params.slug) {
@@ -47,19 +48,12 @@ export default function PostDetails() {
 
           {/* Author and Meta Information */}
           <div className="flex items-center gap-4">
-            <div className="h-12 w-12 rounded-full overflow-hidden bg-muted">
-              {post.avatar ? (
-                <img
-                  src={post.avatar}
-                  alt={post.author}
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <div className="h-full w-full flex items-center justify-center bg-primary/10 text-primary/40 text-xl font-medium">
-                  {post.author[0]}
-                </div>
-              )}
-            </div>
+            <Avatar className="h-12 w-12">
+              <AvatarImage src={post.avatar} alt={post.author} />
+              <AvatarFallback className="bg-primary/10 text-primary/40">
+                {post.author[0]}
+              </AvatarFallback>
+            </Avatar>
 
             <div className="flex-1">
               <div className="font-medium">{post.author}</div>
