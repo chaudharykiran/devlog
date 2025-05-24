@@ -16,6 +16,8 @@ export interface Post {
   tags: string[];
   content: string;
   image?: string;
+  author: string;
+  avatar?: string;
 }
 
 export async function getPosts(): Promise<Post[]> {
@@ -24,13 +26,15 @@ export async function getPosts(): Promise<Post[]> {
     const filename = path.basename(filepath);
 
     return {
-      slug: filename.replace(/\.md$/, ""),
+      slug: filename.replace(/\.(md|mdx)$/, ""),
       title: data.title,
       excerpt: data.excerpt,
       date: data.date,
       tags: data.tags,
       content: markdownContent,
-      image: data.image || null
+      image: data.image || null,
+      author: data.author || "Anonymous",
+      avatar: data.avatar || undefined
     };
   }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
@@ -41,6 +45,20 @@ export function getAllTags(posts: Post[]): string[] {
     post.tags.forEach((tag) => tags.add(tag));
   });
   return Array.from(tags).sort();
+}
+
+export async function getPost(slug: string): Promise<Post | null> {
+  const allPosts = await getPosts();
+  const post = allPosts.find(p => p.slug === slug);
+
+  if (!post) return null;
+
+  // Add default author info if not present in frontmatter
+  return {
+    ...post,
+    author: post.author || "Anonymous",
+    avatar: post.avatar || ""
+  };
 }
 
 

@@ -1,17 +1,10 @@
 import { json, type MetaFunction } from "@remix-run/node";
-import { useLoaderData, Link } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 import { getPosts, getAllTags } from "@/lib/posts.server";
 import { PostCard } from "@/components/blog/post-card";
 import { TagFilter } from "@/components/blog/tag-filter";
-import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+import { TopNavigation } from "@/components/blog/top-navigation";
 
 export const meta: MetaFunction = () => {
   return [
@@ -39,30 +32,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen">
-      {/* Navigation */}
-      <header className="border-b">
-        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-6">
-            <h1 className="text-xl font-serif">TechBlog</h1>
-            {/* Desktop Navigation */}
-            <NavigationMenu className="hidden md:flex">
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <Link to="/" className={cn(navigationMenuTriggerStyle(), "text-foreground")}>
-                    For you
-                  </Link>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <Button className="text-sm rounded-full">
-              Write
-            </Button>
-          </div>
-        </div>
-      </header>
+      <TopNavigation />
 
       {/* Tags Navigation */}
       <nav className="border-b sticky top-0 bg-background/80 backdrop-blur-sm">
