@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { CalendarIcon, ClockIcon } from "lucide-react";
 import { TopNavigation } from "@/components/blog/top-navigation";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import Markdown from "react-markdown";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   if (!params.slug) {
@@ -73,7 +74,7 @@ export default function PostDetails() {
 
         {/* Main Content */}
         <div className="prose dark:prose-invert max-w-none">
-          Content
+          <Markdown>{post.content}</Markdown>
         </div>
       </article>
     </div>
