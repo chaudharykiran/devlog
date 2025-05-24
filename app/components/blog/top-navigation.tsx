@@ -13,7 +13,11 @@ export function TopNavigation() {
     <header className="border-b">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-6">
-          <h1 className="text-xl font-serif">TechBlog</h1>
+          <h1 className="text-xl font-serif">
+            <Link to="/">
+              TechBlog
+            </Link>
+          </h1>
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
