@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link, useNavigate } from "@remix-run/react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -12,14 +12,23 @@ interface PostCardProps {
 }
 
 export function PostCard({ title, excerpt, date, tags, slug, image }: PostCardProps) {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    return navigate(`/posts/${slug}`);
+  };
+
   return (
-    <Card className="group relative hover:border-foreground transition-all">
+    <Card
+      className="group relative hover:border-foreground transition-all cursor-pointer"
+      onClick={handleCardClick}
+    >
       <div className="flex gap-6 p-6">
         <div className="flex-1 space-y-4">
           <div>
             <Link
               to={`/posts/${slug}`}
-              className="text-xl font-bold tracking-tight hover:underline decoration-1"
+              className="text-xl font-bold tracking-tight hover:underline decoration-1 block"
             >
               {title}
             </Link>
@@ -35,7 +44,10 @@ export function PostCard({ title, excerpt, date, tags, slug, image }: PostCardPr
                 <Badge
                   key={tag}
                   variant="secondary"
-                  className="hover:bg-secondary/80 cursor-pointer"
+                  className="hover:bg-secondary/80 cursor-pointer badge"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                  }}
                 >
                   {tag}
                 </Badge>
