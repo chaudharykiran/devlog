@@ -73,7 +73,7 @@ export default function PostDetails() {
         </header>
 
         {/* Main Content */}
-        <div className="prose dark:prose-invert max-w-none">
+        <div className="prose prose-neutral dark:prose-invert max-w-none">
           <Markdown>{post.content}</Markdown>
         </div>
       </article>

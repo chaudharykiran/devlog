@@ -46,7 +46,7 @@ export default function Index() {
       </nav>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4">
+      <main className="container mx-auto px-4 mt-4">
         {/* Featured Post */}
         <div className="flex flex-col gap-4">
           {filteredPosts.map((post) => (
