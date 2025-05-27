@@ -6,22 +6,19 @@ We welcome contributions from everyone! If you'd like to write a post for this b
 
 ## 🛠️ How to Contribute
 
-### 1. **Fork the Repository**
-Start by forking the blog's repository on GitHub (or Git platform of choice).
-
-### 2. **Clone Your Fork Locally**
+### 1. **Clone Your Fork Locally**
 ```bash
 git clone git@github.com:chaudharykiran/techbro.git
 cd techbro
 ```
 
-### 3. **Create a New Branch**
+### 2. **Create a New Branch**
 Use a descriptive branch name for your contribution:
 ```bash
 git checkout -b add-my-awesome-post
 ```
 
-### 4. **Write Your Blog Post**
+### 3. **Write Your Blog Post**
 - Store your post in the `posts/` directory.
 - Use the `.md` (Markdown) file extension.
 - Follow the naming convention: `YYYY-MM-DD-title-of-your-post.md`
@@ -56,12 +53,9 @@ And here’s a code block:
 console.log("Hello World");
 ```
 
-![Image caption](/path/to/image.png)
-```
-
 > 💡 Tip: Make sure your post has clear value, good grammar, and follows the tone of the blog.
 
-### 5. **Preview Your Changes**
+### 4. **Preview Your Changes**
 Run the development server locally to preview your post:
 
 ```bash
@@ -70,14 +64,14 @@ yarn dev
 
 Visit `http://localhost:5173/posts/your-post-slug` to see your post rendered.
 
-### 6. **Commit and Push Your Changes**
+### 5. **Commit and Push Your Changes**
 ```bash
 git add .
 git commit -m "<commit message>"
 git push origin "<branch name>"
 ```
 
-### 7. **Open a Pull Request**
+### 6. **Open a Pull Request**
 Go to the original blog repository on GitHub and open a **new Pull Request** from your branch.
 
 Include:
@@ -85,7 +79,7 @@ Include:
 - A brief description of what your post covers
 - Any notes for the maintainer (optional)
 
-### 8. **Review & Merge**
+### 7. **Review & Merge**
 The maintainers will review your PR. You may be asked to make changes based on feedback. Once approved, your post will be merged and published live!
 
 ---
@@ -98,7 +92,6 @@ To help streamline the review process, please follow these guidelines:
 - Avoid overly technical jargon unless necessary.
 - Include relevant **tags** so readers can discover your post easily.
 - Add **images** where appropriate (include image files in `/public/images/`).
-- Keep posts focused and within a reasonable length (~500–2000 words).
 - Ensure all links are working and properly formatted.
 
 ---
