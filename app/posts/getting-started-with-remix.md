@@ -6,8 +6,6 @@ tags: [remix, react, javascript, web-development]
 image: https://remix.run/img/og.1.jpg
 ---
 
-# Getting Started with Remix
-
 Remix is a full stack web framework that lets you focus on the user interface and work back through web fundamentals to deliver a fast, slick, and resilient user experience.
 
 ## Why Remix?
