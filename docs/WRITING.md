@@ -8,8 +8,8 @@ We welcome contributions from everyone! If you'd like to write a post for this b
 
 ### 1. **Clone Your Fork Locally**
 ```bash
-git clone git@github.com:chaudharykiran/techbro.git
-cd techbro
+git clone git@github.com:chaudharykiran/devlog.git
+cd devlog
 ```
 
 ### 2. **Create a New Branch**
