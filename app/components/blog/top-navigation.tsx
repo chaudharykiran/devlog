@@ -31,7 +31,7 @@ export function TopNavigation() {
 
         <div className="flex items-center gap-4">
           <Button className="text-sm rounded-full">
-            <Link to="https://github.com/chaudharykiran/techbro/blob/master/docs/WRITING.md" target="_blank" rel="noopener noreferrer">
+            <Link to="https://github.com/chaudharykiran/devlog/blob/master/docs/WRITING.md" target="_blank" rel="noopener noreferrer">
               Write
             </Link>
           </Button>
