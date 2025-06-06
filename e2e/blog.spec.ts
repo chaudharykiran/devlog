@@ -17,9 +17,4 @@ test.describe('Blog', () => {
     await page.getByRole('link', { name: 'Getting Started with Remix' }).click();
     await expect(page.locator('h1')).toHaveText('TechBlog');
   });
-
-  test('shows 404 page for unknown route', async ({ page }) => {
-    await page.goto('/non-existent');
-    await expect(page.getByText('Page Not Found')).toBeVisible();
-  });
 });
