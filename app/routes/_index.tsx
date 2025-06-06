@@ -35,7 +35,7 @@ export default function Index() {
       <TopNavigation />
 
       {/* Tags Navigation */}
-      <nav className="border-b sticky top-0 bg-background/80 backdrop-blur-sm">
+      <nav className="border-b sticky top-0 bg-background/80 backdrop-blur-sm relative z-50">
         <div className="container mx-auto px-4">
           <TagFilter
             tags={tags}
