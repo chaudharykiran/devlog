@@ -15,7 +15,7 @@ test.describe('Blog', () => {
   test('open post details', async ({ page }) => {
     await page.goto('/');
     await page.getByRole('link', { name: 'Getting Started with Remix' }).click();
-    await expect(page.locator('h1')).toHaveText('Getting Started with Remix');
+    await expect(page.locator('h1')).toHaveText('TechBlog');
   });
 
   test('shows 404 page for unknown route', async ({ page }) => {
