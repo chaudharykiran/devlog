@@ -3,8 +3,8 @@ module.exports = {
   tailwind: true,
   postcss: true,
   serverModuleFormat: "cjs",
-  serverDependenciesToBundle: [/^.$\.(md|mdx)$/],
-  watchPaths: [".app/posts/**/*.md", ".app/posts/**/*.mdx"],
+  serverDependenciesToBundle: [/^.*\.(md|mdx)$/],
+  watchPaths: ["./app/posts/**/*.md", "./app/posts/**/*.mdx"],
   future: {
     v2_errorBoundary: true,
     v2_headers: true,
