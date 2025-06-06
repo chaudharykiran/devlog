@@ -2,7 +2,7 @@ import * as path from "path";
 import matter from "gray-matter";
 
 // Import all markdown files using Vite's import.meta.glob
-const posts = import.meta.glob('/app/posts/*.(md|mdx)', {
+const posts = import.meta.glob('/app/posts/*.{md,mdx}', {
   eager: true,
   query: '?raw',
   import: 'default',
