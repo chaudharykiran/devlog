@@ -12,9 +12,6 @@ import {
   Mail,
   User,
   MessageSquare,
-  Twitter,
-  Github,
-  Linkedin,
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -36,6 +33,34 @@ export default function ContactPage() {
       <TopNavigation />
       <main className="container mx-auto px-4 py-8 max-w-2xl space-y-8">
         <h1 className="text-3xl font-bold">Contact</h1>
+        <Card>
+          <CardHeader>
+            <CardTitle>Newsletter</CardTitle>
+            <CardDescription>
+              Subscribe to receive any updates.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form
+              action="https://buttondown.email/api/emails/embed-subscribe/devlog"
+              method="post"
+              target="popupwindow"
+              className="space-y-5"
+            >
+              <input type="hidden" value="0" name="embed" />
+              <div className="flex gap-3">
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                  className="flex-2 rounded-md border px-3 py-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                />
+                <Button type="submit">Subscribe</Button>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
         <Card>
           <CardHeader>
             <CardTitle>Send a Message</CardTitle>
@@ -105,61 +130,6 @@ export default function ContactPage() {
             </form>
           </CardContent>
         </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Newsletter</CardTitle>
-            <CardDescription>
-              Subscribe to receive weekly updates.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form
-              action="https://buttondown.email/api/emails/embed-subscribe/devlog"
-              method="post"
-              target="popupwindow"
-              onSubmit={() => window.open('https://buttondown.email/devlog', 'popupwindow')}
-              className="space-y-4"
-            >
-              <input type="hidden" value="1" name="embed" />
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="you@example.com"
-                  className="flex-1 rounded-md border px-3 py-2 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                />
-                <Button type="submit">Subscribe</Button>
-              </div>
-            </form>
-          </CardContent>
-        </Card>
-        <div className="flex justify-center space-x-6 pt-4">
-          <a
-            href="https://twitter.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <Twitter className="h-6 w-6" />
-          </a>
-          <a
-            href="https://github.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <Github className="h-6 w-6" />
-          </a>
-          <a
-            href="https://linkedin.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
-          >
-            <Linkedin className="h-6 w-6" />
-          </a>
-        </div>
       </main>
     </div>
   );

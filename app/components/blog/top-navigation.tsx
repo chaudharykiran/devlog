@@ -30,6 +30,11 @@ export function TopNavigation() {
         </div>
 
         <div className="flex items-center gap-4">
+          <Link to="/contact">
+            <Button className="text-sm rounded-full">
+              Contact
+            </Button>
+          </Link>
           <Button className="text-sm rounded-full">
             <Link to="https://github.com/chaudharykiran/devlog/blob/master/docs/WRITING.md" target="_blank" rel="noopener noreferrer">
               Write
