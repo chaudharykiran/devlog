@@ -1,12 +1,5 @@
 import { Link } from "@remix-run/react";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 export function TopNavigation() {
   return (
@@ -18,15 +11,6 @@ export function TopNavigation() {
               TechBlog
             </Link>
           </h1>
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link to="/" className={cn(navigationMenuTriggerStyle(), "text-foreground")}>
-                  For you
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
         </div>
 
         <div className="flex items-center gap-4">
