@@ -15,7 +15,9 @@
     ],
     "types": [
       "@remix-run/node",
-      "vite/client"
+      "vite/client",
+      "vitest/globals",
+      "@testing-library/jest-dom"
     ],
     "isolatedModules": true,
     "esModuleInterop": true,
