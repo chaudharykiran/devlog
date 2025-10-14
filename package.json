@@ -72,6 +72,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "jsdom": "27.0.0",
+    "msw": "2.11.5",
     "postcss": "^8.5.3",
     "shadcn": "^2.5.0",
     "tailwindcss": "3",
