@@ -31,11 +31,11 @@ export default function Index() {
     : posts;
 
   return (
-    <div className="min-h-screen">
+    <div>
       <TopNavigation />
 
       {/* Tags Navigation */}
-      <nav className="border-b sticky top-14 bg-background/80 backdrop-blur-sm relative z-50">
+      <nav className="border-b sticky top-14 bg-background/80 backdrop-blur-sm z-50">
         <div className="container mx-auto px-4">
           <TagFilter
             tags={tags}
@@ -48,7 +48,7 @@ export default function Index() {
       {/* Main Content */}
       <main className="container mx-auto px-4 mt-4">
         {/* Featured Post */}
-        <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredPosts.map((post) => (
             <PostCard
               key={post.slug}

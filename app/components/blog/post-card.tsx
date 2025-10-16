@@ -23,12 +23,22 @@ export function PostCard({ title, excerpt, date, tags, slug, image }: PostCardPr
       className="group relative hover:border-foreground transition-all cursor-pointer"
       onClick={handleCardClick}
     >
-      <div className="flex gap-6 p-6">
+      <div className="flex flex-col h-full p-6">
+        {image && (
+          <div className="relative h-48 w-full mb-4 rounded-md overflow-hidden">
+            <img
+              src={image}
+              alt={title}
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+          </div>
+        )}
         <div className="flex-1 space-y-4">
           <div>
             <Link
               to={`/posts/${slug}`}
               className="text-xl font-bold tracking-tight hover:underline decoration-1 block"
+              onClick={(e) => e.stopPropagation()}
             >
               {title}
             </Link>
@@ -36,7 +46,7 @@ export function PostCard({ title, excerpt, date, tags, slug, image }: PostCardPr
               {excerpt}
             </p>
           </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground mt-auto">
             <time dateTime={date}>{new Date(date).toLocaleDateString()}</time>
             <span>•</span>
             <div className="flex flex-wrap gap-2">
@@ -55,15 +65,6 @@ export function PostCard({ title, excerpt, date, tags, slug, image }: PostCardPr
             </div>
           </div>
         </div>
-        {image && (
-          <div className="hidden sm:block relative h-32 w-32 shrink-0">
-            <img
-              src={image}
-              alt={title}
-              className="absolute inset-0 h-full w-full object-cover rounded-md"
-            />
-          </div>
-        )}
       </div>
     </Card>
   );
