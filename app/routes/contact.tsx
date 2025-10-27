@@ -16,14 +16,39 @@ import {
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success" | "error" | "submitting">("idle");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (form.name && form.email && form.message) {
+    
+    if (!form.name || !form.email || !form.message) {
+      setStatus("error");
+      return;
+    }
+
+    setStatus("submitting");
+
+    try {
+      // For demo purposes with placeholder URL, simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // In production, replace with actual Formspree form ID:
+      // const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     name: form.name,
+      //     email: form.email,
+      //     message: form.message,
+      //   }),
+      // });
+      
+      // Simulate successful submission for demo
       setStatus("success");
       setForm({ name: "", email: "", message: "" });
-    } else {
+    } catch (error) {
       setStatus("error");
     }
   };
@@ -65,7 +90,7 @@ export default function ContactPage() {
           <CardHeader>
             <CardTitle>Send a Message</CardTitle>
             <CardDescription>
-              Fill out the form below and I'll get back to you.
+              Fill out the form below and I&apos;ll get back to you.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -78,6 +103,7 @@ export default function ContactPage() {
                   <User className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                   <input
                     id="name"
+                    name="name"
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
@@ -94,6 +120,7 @@ export default function ContactPage() {
                   <Mail className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                   <input
                     id="email"
+                    name="email"
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
@@ -110,6 +137,7 @@ export default function ContactPage() {
                   <MessageSquare className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -118,14 +146,14 @@ export default function ContactPage() {
                   />
                 </div>
               </div>
-              <Button type="submit" className="w-full">
-                Send Message
+              <Button type="submit" className="w-full" disabled={status === "submitting"}>
+                {status === "submitting" ? "Sending..." : "Send Message"}
               </Button>
               {status === "success" && (
-                <p className="text-green-600">Thanks! I'll be in touch soon.</p>
+                <p className="text-green-600">Thanks! I&apos;ll be in touch soon.</p>
               )}
               {status === "error" && (
-                <p className="text-destructive">Please fill out all fields.</p>
+                <p className="text-destructive">Please fill out all fields or try again later.</p>
               )}
             </form>
           </CardContent>
